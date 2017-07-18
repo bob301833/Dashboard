@@ -18,12 +18,12 @@
 
         <div class="form-group">
             {!! Form::label('role_id', 'Role:') !!}
-            {!! Form::text('role_id', null, ['class'=>'form-control']) !!}
+            {!! Form::select('role_id',[''=>'Choose Options'] + $roles ,'', ['class'=>'form-control']) !!}
         </div>
 
         <div class="form-group">
             {!! Form::label('status', 'Status:') !!}
-            {!! Form::text('status', null, ['class'=>'form-control']) !!}
+            {!! Form::select('status', [0 => 'Not Active', 1 => 'Actuve'], 0, ['class'=>'form-control']) !!}
         </div>
     
 
