@@ -22,10 +22,14 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label('status', 'Status:') !!}
-            {!! Form::select('status', [0 => 'Not Active', 1 => 'Actuve'], 0, ['class'=>'form-control']) !!}
+            {!! Form::label('is_active', 'Status:') !!}
+            {!! Form::select('is_active', [0 => 'Not Active', 1 => 'Actuve'], 0, ['class'=>'form-control']) !!}
         </div>
     
+        <div class="form-group">
+            {!! Form::label('password', 'Password:') !!}
+            {!! Form::password('password', ['class'=>'form-control']) !!}
+        </div>
 
         <div class="form-group">
             {!! Form::submit('Create User',['class' => 'btn btn-primary']) !!}
