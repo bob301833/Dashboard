@@ -44,9 +44,12 @@ class AdminUsersController extends Controller
     {
         $input = $request->all();
 
+        if($request->file('file')){
+            return $request->file('file');
+        }
         //dd($request->file()->originalName);
-        User::create($input);
-        return redirect('admin/users');
+        // User::create($input);
+        // return redirect('admin/users');
     }
 
     /**
