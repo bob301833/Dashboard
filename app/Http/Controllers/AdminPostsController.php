@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 use App\Http\Requests;
 use App\Http\Requests\PostsCreateRequest;
@@ -131,6 +132,9 @@ class AdminPostsController extends Controller
         unlink(public_path().$post->photo->file);
 
         $post->delete();
+        
+        Session::flash('deleted_post','The post has been deleted.');
+
 
         return redirect('/admin/posts');
 

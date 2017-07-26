@@ -2,6 +2,12 @@
 
 @section('content')
 
+   @if(Session::has('deleted_post'))
+        <div class="alert alert-danger">
+            {{session('deleted_post')}}
+        </div>
+    @endif
+
     <h1>Posts</h1>
 
     <table class="table">
