@@ -13,26 +13,26 @@
         </div>
 
         <div class="col-sm-9">
-            {!! Form::model([$user,$roles],['method'=>'PATCH', 'action'=>['AdminUsersController@update',$user->id], 'files'=>true]) !!}
+            {!! Form::model($user,['method'=>'PATCH', 'action'=>['AdminUsersController@update',$user->id], 'files'=>true]) !!}
             
                 <div class="form-group">
                     {!! Form::label('name', 'Name:') !!}
-                    {!! Form::text('name', $user->name, ['class'=>'form-control']) !!}
+                    {!! Form::text('name', null, ['class'=>'form-control']) !!}
                 </div>
             
                 <div class="form-group">
                     {!! Form::label('email', 'Email:') !!}
-                    {!! Form::email('email', $user->email, ['class'=>'form-control']) !!}
+                    {!! Form::email('email', null, ['class'=>'form-control']) !!}
                 </div>
 
                 <div class="form-group">
                     {!! Form::label('role_id', 'Role:') !!}
-                    {!! Form::select('role_id',[''=>'Choose Options'] + $roles ,$user->role_id, ['class'=>'form-control']) !!}
+                    {!! Form::select('role_id',[''=>'Choose Options'] + $roles ,null, ['class'=>'form-control']) !!}
                 </div>
 
                 <div class="form-group">
                     {!! Form::label('is_active', 'Status:') !!}
-                    {!! Form::select('is_active', [0 => 'Not Active', 1 => 'Actuve'], $user->is_active, ['class'=>'form-control']) !!}
+                    {!! Form::select('is_active', [0 => 'Not Active', 1 => 'Actuve'], null, ['class'=>'form-control']) !!}
                 </div>
 
                 <div class="form-group">
