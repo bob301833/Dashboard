@@ -31,7 +31,7 @@
 
 
             <div class="form-group">
-                {!! Form::submit('Edit Post',['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Update Post',['class' => 'btn btn-primary']) !!}
             </div>
         
         {!! Form::close() !!}
