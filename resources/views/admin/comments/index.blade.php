@@ -7,19 +7,29 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
+            <th>Id</th>
+            <th>Author</th>
             <th>Email</th>
+            <th>Body</th>
         </tr>
         </thead>
         <tbody>
 
+        @if($comments)
+
+            @foreach($comments as $comment)
+                <tr>
+                    <td>{{$comment->id}}</td>
+                    <td>{{$comment->author}}</td>
+                    <td>{{$comment->email}}</td>
+                    <td>{{$comment->body}}</td>
+                    <td><a href="{{route('home.post',$comment->post->id)}}">View Post</a></td>
+                </tr>
+            @endforeach
+
+        @endif
+
         
-        <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-        </tr>
         </tbody>
     </table>
 
