@@ -90,6 +90,15 @@ class AdminMediasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $photo = Photo::findorFail($id);
+
+        if(file_exists(public_path().$photo->file)){
+            unlink(public_path().$photo->file);
+        }
+        
+        $photo->delete();
+
+        return redirect('/admin/media');
+
     }
 }
