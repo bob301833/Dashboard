@@ -30,17 +30,33 @@
 
     <hr>
 
+    @if(Session::has('comment_message'))
+        <div class="alert alert alert-success">
+            {{session('comment_message')}}
+        </div>
+    @endif
+
     <!-- Blog Comments -->
 
     <!-- Comments Form -->
     <div class="well">
         <h4>Leave a Comment:</h4>
-        <form role="form">
+
+        {!! Form::open(['method'=>'POST', 'action'=>'PostCommentsController@store']) !!}
+        
+            <input type="hidden" name="post_id" value="{{$post->id}}">
+
             <div class="form-group">
-                <textarea class="form-control" rows="3"></textarea>
+                {!! Form::label('body', 'Body:') !!}
+                {!! Form::textarea('body', null, ['class'=>'form-control', 'rows'=>3]) !!}
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        
+            <div class="form-group">
+                {!! Form::submit('Submit comment',['class' => 'btn btn-primary']) !!}
+            </div>
+        
+        {!! Form::close() !!}
+
     </div>
 
     <hr>
@@ -87,4 +103,21 @@
     </div>
 
 
+@endsection
+
+@section('category')
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="list-unstyled">
+
+                @if($categories)
+                    @foreach($categories as $category)
+                        <li><a href="#">{{$category->name}}</a></li>
+                    @endforeach
+                @endif
+                
+            </ul>
+        </div>
+        
+    </div>
 @endsection
