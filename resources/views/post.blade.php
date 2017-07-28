@@ -116,8 +116,7 @@
                         <div class="comment-reply-container">
 
                             <button class="toggle-reply btn btn-primary pull-right">Reply</button>
-                            <br>
-                            <div class="comment-reply">
+                            <div class="comment-reply col-sm-8">
                                 {!! Form::open(['method'=>'POST', 'action'=>'CommentRepliesController@createReply']) !!}
                                 
                                     <div class="form-group">
@@ -170,7 +169,7 @@
     <script>
     
         $(".comment-reply-container .toggle-reply").click(function(){
-            $(this).next().next().slideToggle("slow");
+            $(this).next().slideToggle("slow");
         });
 
     </script>
