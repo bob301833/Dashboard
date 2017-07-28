@@ -36,6 +36,11 @@
         </div>
     @endif
 
+   @if(Session::has('reply_message'))
+        <div class="alert alert alert-success">
+            {{session('reply_message')}}
+        </div>
+    @endif
     <!-- Blog Comments -->
 
     @if(Auth::check())  
@@ -98,12 +103,16 @@
                         {!! Form::open(['method'=>'POST', 'action'=>'CommentRepliesController@createReply']) !!}
                         
                             <div class="form-group">
+
+                                <input type="hidden" name="comment_id" value="{{$comment->id}}">
+                                
+
                                 {!! Form::label('body', 'Body:') !!}
                                 {!! Form::textarea('body', null, ['class'=>'form-control','rows'=>2]) !!}
                             </div>
                         
                             <div class="form-group">
-                                {!! Form::submit('Create Reply',['class' => 'btn btn-primary']) !!}
+                                {!! Form::submit('Submit Reply',['class' => 'btn btn-primary']) !!}
                             </div>
                         
                         {!! Form::close() !!}
