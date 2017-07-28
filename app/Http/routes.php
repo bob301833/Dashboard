@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Route::auth();
 
+Route::get('/logout', 'Auth\LoginController@logout');
+
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('/post/{id}',['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
