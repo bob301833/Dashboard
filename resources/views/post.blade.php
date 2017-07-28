@@ -112,23 +112,29 @@
                             
                         @endif
                         
-                        {!! Form::open(['method'=>'POST', 'action'=>'CommentRepliesController@createReply']) !!}
-                        
-                            <div class="form-group">
 
-                                <input type="hidden" name="comment_id" value="{{$comment->id}}">
+                        <div class="comment-reply-container">
+
+                            <button class="toggle-reply btn btn-primary pull-right">Reply</button>
+                            <br>
+                            <div class="comment-reply">
+                                {!! Form::open(['method'=>'POST', 'action'=>'CommentRepliesController@createReply']) !!}
                                 
+                                    <div class="form-group">
 
-                                {!! Form::label('body', 'Body:') !!}
-                                {!! Form::textarea('body', null, ['class'=>'form-control','rows'=>2]) !!}
+                                        <input type="hidden" name="comment_id" value="{{$comment->id}}">
+                                        
+                                        {!! Form::label('body', 'Body:') !!}
+                                        {!! Form::textarea('body', null, ['class'=>'form-control','rows'=>2]) !!}
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        {!! Form::submit('Submit Reply',['class' => 'btn btn-primary']) !!}
+                                    </div>
+                                
+                                {!! Form::close() !!}
                             </div>
-                        
-                            <div class="form-group">
-                                {!! Form::submit('Submit Reply',['class' => 'btn btn-primary']) !!}
-                            </div>
-                        
-                        {!! Form::close() !!}
-
+                        </div>
                     </div>
                     <!-- End Nested Comment -->
 
@@ -158,4 +164,14 @@
         </div>
         
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+    
+        $(".comment-reply-container .toggle-reply").click(function(){
+            $(this).next().next().slideToggle("slow");
+        });
+
+    </script>
 @endsection
