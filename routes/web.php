@@ -23,6 +23,11 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/post/{id}',['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
 
+Route::get('/media-delete/{id}', [
+    'uses' => 'AdminMediasController@destroy',
+    'as'   => 'media.delete.manually',
+]);
+
 Route::group(['middleware' => 'admin','as'=>'admin.'], function () {
     Route::get('/admin', function(){
         return view('admin.index');
