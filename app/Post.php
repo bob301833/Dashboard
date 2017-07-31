@@ -52,4 +52,8 @@ class Post extends Model
         return $this->hasMany('App\Comment');        
     }
 
+    public function photoPlaceholder($size){
+        return "http://placehold.it/$size";
+    }
+
 }

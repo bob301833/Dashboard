@@ -2,13 +2,15 @@
 
 @section('content')
 
+    @include('includes.tinyeditor')
+
     <h1>Edit Post</h1>
 
     
     <div class="row">
 
         <div class="col-sm-3">
-            <img class="img-responsive" src="{{$post->photo? $post->photo->file : 'https://placehold.it/400x200'}}" alt="">
+            <img class="img-responsive" src="{{$post->photo? $post->photo->file : $post->photoPlaceholder('400x200')}}" alt="">
         </div>
 
         <div class="col-sm-9">
