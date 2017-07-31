@@ -38,6 +38,10 @@ class AdminCategoriesController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
         Category::create($request->all());
 
         return redirect('/admin/categories');
@@ -75,6 +79,10 @@ class AdminCategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+        
         Category::findOrFail($id)->update($request->all());
         return redirect('/admin/categories');        
         

@@ -19,7 +19,9 @@
             </div>
         
         {!! Form::close() !!}
-
+        <div class="row">
+            @include('includes.form_error')
+        </div>
     </div>
 
     <div class="col-sm-6">
